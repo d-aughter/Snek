@@ -1,5 +1,4 @@
 from pprint import pformat
-from subprocess import Popen, PIPE
 
 
 class PrettyDict(dict):

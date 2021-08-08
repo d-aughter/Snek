@@ -1,7 +1,7 @@
 import youtube_dl
 from glob import glob
 from typing import Union
-from snek.util import prettify
+from snek_dl.util import prettify
 from subprocess import PIPE, Popen, SubprocessError
 
 
@@ -43,28 +43,26 @@ class Snek:
         return dict(
             filename=final_filename,
             id=info["id"],
-            url=url,
+            urls=url,
             format=info["format"],
             filesize=info["filesize"],
         )
 
-    def _get_merged_video_url(self):
+    def _get_merged_video_url(self) -> dict:
         process = Popen(["youtube-dl", "--get-url", self.url], stdout=PIPE, stderr=PIPE)
         stdout, stderr = process.communicate()
         if stderr:
             raise SubprocessError(stderr)
         urls = stdout.decode("utf-8").split("\n")
-        if len(urls) > 1:
-            return urls[0]
-        return urls.pop()
+        if len(urls) < 1:
+            audio_url = urls[1]
+        else:
+            audio_url = None
+        return dict(video_url=urls[0], audio_url=audio_url)
 
     @prettify
     def info(self, download: bool = False) -> dict:
         return self.engine.extract_info(url=self.url, download=download)
-
-    @prettify
-    def info_key_list(self) -> list:
-        return list(self.info(download=False).keys())
 
     @prettify
     def info_detail(self, detail: str):
