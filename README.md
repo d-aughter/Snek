@@ -57,13 +57,14 @@ engine = Snek(url="https://www.youtube.com/watch?v=dQw4w9WgXcQ", options=opts)
 # with the initialized snek engine, you can retrieve info like metadata
 from snek_dl import Snek
 engine = Snek(url="https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-# if you set download to false, it only retrieves metadata and does not trigger the download process. Default is False
+# if you set download to false, it only retrieves metadata and does not trigger the download process.
+# default is False
 info = engine.info(download=False) # returns the metadata
 # or if you only want one thing from the metadata:
 info = engine.info_detail(detail="id") # returns the id
 
 # there's a special method for retrieving and parsing available formats
-# if you set full to true, it will return every detail. Default is false
+# if you set full to true, it will return every detail. default is false
 formats = engine.formats(full=False) # returns simplified formats
 ```
 ```python
