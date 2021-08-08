@@ -1,6 +1,6 @@
 # snek-dl
 
-An intuitive wrapper `for youtube-dl`, to be used as a Python module.
+An intuitive wrapper for `youtube-dl`, to be used as a Python module.
 
 ## Installation
 `pip install snek-dl`
