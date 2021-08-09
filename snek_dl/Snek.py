@@ -44,8 +44,7 @@ class Snek:
             filename=final_filename,
             id=info["id"],
             urls=url,
-            format=info["format"],
-            filesize=info["filesize"],
+            format=info["format"]
         )
 
     def _get_merged_video_url(self) -> dict:
