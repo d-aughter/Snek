@@ -19,7 +19,7 @@ right out of the box.
        
 2. Remedied inaccurate filename issue
     * Same issue as above: it's weirdly hard to get the output video file's name when `youtube-dl` uses `ffmpeg` to 
-      merge the video and audio streams into one file. So it becomes extremely hard to do any post-processing on the
+      merge the video and audio streams into one file. So it becomes extremely annoying to do any post-processing on the
       downloaded videos.
     * `snek-dl` returns the metadata after downloading the video, which includes basic information such as the actual
       correct filepath.
