@@ -12,6 +12,7 @@ class Snek:
         name_format: str = "",
         output_format: str = "",
         options: dict = None,
+        headers: dict = None
     ):
         """
         :param url: URL of the video
@@ -28,6 +29,9 @@ class Snek:
                 options["outtmpl"] = name_format
             if output_format:
                 options["format"] = output_format
+        if headers:
+            for k, v in headers.items():
+                youtube_dl.utils.std_headers[k] = v
         self.engine = youtube_dl.YoutubeDL(options)
 
     @prettify

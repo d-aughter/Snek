@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="snek_dl",
-    version="0.0.3",
+    version="0.0.4",
     author="arta",
     author_email="disy455@gmail.com",
     description="An intuitive wrapper for youtube-dl",
