@@ -1,14 +1,16 @@
-from pprint import pformat
+import pprint
+
+pprint.sorted = lambda x, key=None: x
 
 
 class PrettyDict(dict):
     def __str__(self):
-        return pformat(self, sort_dicts=False)
+        return pprint.pformat(self)
 
 
 class PrettyList(list):
     def __str__(self):
-        return pformat(self, sort_dicts=False)
+        return pprint.pformat(self)
 
 
 class Pretty:
