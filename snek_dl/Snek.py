@@ -1,5 +1,5 @@
 import youtube_dl
-from glob import glob
+from glob import glob, escape
 from typing import Union
 from snek_dl.util import prettify
 from subprocess import PIPE, Popen, SubprocessError
@@ -43,6 +43,7 @@ class Snek:
         info = self.info(download=True)
         url = self._get_merged_video_url()
         temp_filename = self.engine.prepare_filename(info_dict=info).rsplit(".", 1)[0]
+        temp_filename = escape(temp_filename)
         final_filename = glob(f"{temp_filename}.*").pop()
         return dict(
             filename=final_filename,
